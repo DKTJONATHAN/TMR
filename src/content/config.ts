@@ -1,21 +1,16 @@
-import { defineCollection, z } from 'astro:content';
+import { getPosts } from '@/lib/content'; // Path to the downloaded file
 
-const postsCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    date: z.string().or(z.date()).transform(val => new Date(val)),
-    description: z.string(),
-    author: z.string().optional(),
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
-    imageCaption: z.string().optional(),
-    category: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    featured: z.boolean().optional(),
-    draft: z.boolean().optional()
-  }),
-});
+export default function BlogPage() {
+  const posts = getPosts(); // This will return a strictly typed array based on your Zod schema
 
-export const collections = {
-  posts: postsCollection,
-};
+  return (
+    <div>
+      {posts.map((post) => (
+        <article key={post.slug}>
+          <h2>{post.frontmatter.title}</h2>
+          <p>{post.frontmatter.date.toDateString()}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
