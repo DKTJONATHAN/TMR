@@ -8,61 +8,101 @@ export default function Terms() {
   const lastUpdated = "August 13, 2025";
   return (
     <>
-      <main className="policy-page" role="main">
-        <section className="policy-header">
-          <h1>Terms of Service</h1>
-          <p>Last Updated: {lastUpdated}</p>
-        </section>
-        <section className="policy-content">
-          <h2>1. Introduction</h2>
-          <p>These Terms of Service ("Terms") govern your use of <a href="/">jonathanmwaniki.co.ke</a> ("Website") operated by The Mwaniki Report ("we," "us," or "our"). By accessing our Website, you agree to these Terms, which comply with Kenyan law and international standards.</p>
-          
-          <h2>2. Use of the Website</h2>
-          <p>You agree to:</p>
-          <ul>
-            <li>Use the Website for lawful purposes only.</li>
-            <li>Not post or transmit harmful, offensive, or illegal content.</li>
-            <li>Not attempt to gain unauthorized access to our systems.</li>
-          </ul>
+      <main className="static-page">
+        <div className="static-container">
+          <header className="static-header">
+            <span className="pill-label">Legal</span>
+            <h1 className="page-title">Terms of Service</h1>
+            <p className="last-updated">Last Updated: {lastUpdated}</p>
+          </header>
 
-          <h2>3. Intellectual Property</h2>
-          <p>All content on the Website (e.g., articles, images, logos) is owned by The Mwaniki Report or its licensors and protected by Kenyan copyright laws and international treaties. You may not reproduce or distribute content without permission.</p>
+          <div className="content-card">
+            <section className="policy-section">
+              <h2>1. Introduction</h2>
+              <p>These Terms of Service ("Terms") govern your use of <a href="/">jonathanmwaniki.co.ke</a> ("Website") operated by The Mwaniki Report. By accessing our Website, you agree to these Terms, which comply with Kenyan law and international standards.</p>
+              
+              <h2>2. Use of the Website</h2>
+              <p>You agree to use the Website for lawful purposes only and not to post or transmit harmful, offensive, or illegal content, or attempt to gain unauthorized access to our systems.</p>
 
-          <h2>4. User Contributions</h2>
-          <p>Comments or submissions you provide may be published on the Website. By submitting, you grant us a non-exclusive, royalty-free license to use, modify, and display such content.</p>
+              <h2>3. Intellectual Property</h2>
+              <p>All content on the Website (e.g., articles, images, logos) is owned by The Mwaniki Report or its licensors and protected by Kenyan copyright laws and international treaties.</p>
 
-          <h2>5. Third-Party Links</h2>
-          <p>Our Website may contain links to third-party sites. We are not responsible for their content or practices.</p>
+              <h2>4. Governing Law</h2>
+              <p>These Terms are governed by the laws of Kenya. Disputes will be resolved in the courts of Nairobi, Kenya.</p>
 
-          <h2>6. Limitation of Liability</h2>
-          <p>The Website is provided "as is." We are not liable for any damages arising from your use, to the extent permitted by Kenyan law.</p>
-
-          <h2>7. Governing Law</h2>
-          <p>These Terms are governed by the laws of Kenya. Disputes will be resolved in the courts of Nairobi, Kenya, subject to international jurisdiction where applicable (e.g., GDPR for EU users).</p>
-
-          <h2>8. Changes to These Terms</h2>
-          <p>We may update these Terms. Changes will be posted here with an updated "Last Updated" date.</p>
-
-          <h2>9. Contact Us</h2>
-          <p>For questions, contact us at:</p>
-          <p>Email: <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a></p>
-          <p>The Mwaniki Report, Nairobi, Kenya.</p>
-        </section>
+              <h2>5. Contact Us</h2>
+              <p>For questions, contact us at <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a>.</p>
+            </section>
+          </div>
+        </div>
       </main>
+
       <style dangerouslySetInnerHTML={{ __html: `
-        .policy-page { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; font-family: 'ReithSans', 'Helvetica', 'Arial', sans-serif; color: #141414; }
-        .policy-header { text-align: center; margin-bottom: 2rem; }
-        .policy-header h1 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 2rem; color: #141414; margin: 0 0 0.5rem; }
-        .policy-header p { font-size: 0.875rem; color: #666; }
-        .policy-content { max-width: 800px; margin: 0 auto; line-height: 1.6; }
-        .policy-content h2 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 1.5rem; color: #141414; margin: 1.5rem 0 0.75rem; }
-        .policy-content p, .policy-content ul { font-size: 0.9375rem; color: #333; }
-        .policy-content ul { padding-left: 1.5rem; margin: 0.5rem 0; }
-        .policy-content a { color: #BB1919; text-decoration: none; }
-        .policy-content a:hover, .policy-content a:focus { text-decoration: underline; }
-        .policy-content a:focus { outline: 2px solid #BB1919; outline-offset: 2px; }
-        @media (max-width: 768px) { .policy-page { padding: 1.5rem 0.75rem; } .policy-header h1 { font-size: 1.75rem; } .policy-content h2 { font-size: 1.25rem; } .policy-content p, .policy-content ul { font-size: 0.875rem; } }
-        @media (max-width: 480px) { .policy-header h1 { font-size: 1.5rem; } .policy-content h2 { font-size: 1.125rem; } .policy-content p, .policy-content ul { font-size: 0.8125rem; } }
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #dc2626;
+          --border: #e2e8f0;
+          --font-body: 'Merriweather', Georgia, serif;
+          --font-head: 'Inter', system-ui, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+          }
+        }
+
+        .static-page {
+          background: var(--bg);
+          color: var(--text);
+          font-family: var(--font-body);
+          padding: 6rem 0;
+          line-height: 1.8;
+        }
+
+        .static-container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        .static-header { text-align: center; margin-bottom: 4rem; }
+        .pill-label { 
+          display: inline-block; background: var(--accent); color: white; 
+          font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; 
+          padding: 0.2rem 0.8rem; border-radius: 100px; margin-bottom: 1.5rem;
+          text-transform: uppercase; letter-spacing: 1px;
+        }
+        .page-title { 
+          font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 3.5rem); 
+          font-weight: 900; margin: 0 0 1rem; color: var(--text); letter-spacing: -0.04em;
+        }
+        .last-updated { font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+        .content-card {
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 3rem;
+          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .policy-section h2 { 
+          font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; 
+          margin: 2rem 0 1rem; color: var(--text); border-bottom: 2px solid var(--accent);
+          display: inline-block; padding-bottom: 4px;
+        }
+        .policy-section p { margin-bottom: 1.5rem; color: var(--text); opacity: 0.9; }
+        .policy-section a { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: 0.2s; }
+        .policy-section a:hover { border-bottom-color: var(--accent); }
+        
+        @media (max-width: 640px) {
+          .static-page { padding: 4rem 0; }
+          .content-card { padding: 2rem; }
+        }
       `}} />
     </>
   );

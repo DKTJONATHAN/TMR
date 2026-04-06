@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPublicPosts, getAllPosts } from '../../../../utils/posts';
+import { getPublicPosts, getAllPosts } from '../../../utils/posts';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -17,15 +17,17 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { category: string } }) {
-  const categoryName = params.category.charAt(0).toUpperCase() + params.category.slice(1);
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
+  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
   return {
     title: `${categoryName} News Kenya | Jonathan Mwaniki`,
     description: `Latest ${categoryName} news from Kenya. Breaking stories, deep analysis, and updates.`,
   };
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category: categoryParam } = await params;
   const allPosts = getPublicPosts();
   
   function slugify(str: string) {
@@ -33,10 +35,10 @@ export default function CategoryPage({ params }: { params: { category: string } 
   }
 
   const catPosts = allPosts.filter(post => {
-    return slugify(post.data.category || '') === params.category;
+    return slugify(post.data.category || '') === categoryParam;
   }).sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 
-  const categoryName = catPosts.length > 0 ? catPosts[0].data.category : (params.category.charAt(0).toUpperCase() + params.category.slice(1));
+  const categoryName = catPosts.length > 0 ? catPosts[0].data.category : (categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1));
 
   const storyPosts = catPosts.slice(0, 10);
   const feedPosts = catPosts;

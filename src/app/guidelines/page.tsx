@@ -8,64 +8,101 @@ export default function Guidelines() {
   const lastUpdated = "August 13, 2025";
   return (
     <>
-      <main className="policy-page" role="main">
-        <section className="policy-header">
-          <h1>Editorial Guidelines</h1>
-          <p>Last Updated: {lastUpdated}</p>
-        </section>
-        <section className="policy-content">
-          <h2>1. Introduction</h2>
-          <p>The Mwaniki Report is committed to delivering accurate, fair, and ethical journalism. These Editorial Guidelines outline our standards for content creation and publication, in line with Kenyan media laws and international best practices.</p>
+      <main className="static-page">
+        <div className="static-container">
+          <header className="static-header">
+            <span className="pill-label">Editorial</span>
+            <h1 className="page-title">Editorial Guidelines</h1>
+            <p className="last-updated">Last Updated: {lastUpdated}</p>
+          </header>
 
-          <h2>2. Accuracy and Fairness</h2>
-          <p>We strive to:</p>
-          <ul>
-            <li>Verify information from credible sources before publication.</li>
-            <li>Correct errors promptly and transparently.</li>
-            <li>Present balanced perspectives, especially on controversial issues.</li>
-          </ul>
+          <div className="content-card">
+            <section className="policy-section">
+              <h2>1. Introduction</h2>
+              <p>The Mwaniki Report is committed to delivering accurate, fair, and ethical journalism. These Editorial Guidelines outline our standards for content creation and publication, in line with Kenyan media laws and international best practices.</p>
 
-          <h2>3. Independence</h2>
-          <p>Our editorial decisions are free from external influence, including advertisers or political entities, in accordance with the <strong>Media Council Act, 2013</strong> (Kenya).</p>
+              <h2>2. Accuracy and Fairness</h2>
+              <p>We strive to verify information from credible sources before publication, correct errors promptly and transparently, and present balanced perspectives on controversial issues.</p>
 
-          <h2>4. Transparency</h2>
-          <p>We disclose:</p>
-          <ul>
-            <li>Sources of information, where possible, unless confidentiality is required.</li>
-            <li>Any conflicts of interest in our reporting.</li>
-            <li>Sponsored content or partnerships clearly labeled.</li>
-          </ul>
+              <h2>3. Independence</h2>
+              <p>Our editorial decisions are free from external influence, including advertisers or political entities, in accordance with the <strong>Media Council Act, 2013</strong> (Kenya).</p>
 
-          <h2>5. Respect and Sensitivity</h2>
-          <p>We respect privacy and avoid harm by:</p>
-          <ul>
-            <li>Not publishing private information without consent, per the Kenya Data Protection Act, 2019.</li>
-            <li>Handling sensitive topics (e.g., violence, tragedy) with care.</li>
-          </ul>
+              <h2>4. Transparency</h2>
+              <p>We disclose sources of information where possible, any conflicts of interest in our reporting, and clearly label sponsored content or partnerships.</p>
 
-          <h2>6. User Contributions</h2>
-          <p>Comments or submissions must comply with our <a href="/terms">Terms of Service</a>. We reserve the right to moderate or remove inappropriate content.</p>
-
-          <h2>7. Contact Us</h2>
-          <p>For feedback or concerns about our content, contact us at:</p>
-          <p>Email: <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a></p>
-          <p>The Mwaniki Report, Nairobi, Kenya.</p>
-        </section>
+              <h2>5. Contact Us</h2>
+              <p>For feedback or concerns about our content, contact us at <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a>.</p>
+            </section>
+          </div>
+        </div>
       </main>
+
       <style dangerouslySetInnerHTML={{ __html: `
-        .policy-page { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; font-family: 'ReithSans', 'Helvetica', 'Arial', sans-serif; color: #141414; }
-        .policy-header { text-align: center; margin-bottom: 2rem; }
-        .policy-header h1 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 2rem; color: #141414; margin: 0 0 0.5rem; }
-        .policy-header p { font-size: 0.875rem; color: #666; }
-        .policy-content { max-width: 800px; margin: 0 auto; line-height: 1.6; }
-        .policy-content h2 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 1.5rem; color: #141414; margin: 1.5rem 0 0.75rem; }
-        .policy-content p, .policy-content ul { font-size: 0.9375rem; color: #333; }
-        .policy-content ul { padding-left: 1.5rem; margin: 0.5rem 0; }
-        .policy-content a { color: #BB1919; text-decoration: none; }
-        .policy-content a:hover, .policy-content a:focus { text-decoration: underline; }
-        .policy-content a:focus { outline: 2px solid #BB1919; outline-offset: 2px; }
-        @media (max-width: 768px) { .policy-page { padding: 1.5rem 0.75rem; } .policy-header h1 { font-size: 1.75rem; } .policy-content h2 { font-size: 1.25rem; } .policy-content p, .policy-content ul { font-size: 0.875rem; } }
-        @media (max-width: 480px) { .policy-header h1 { font-size: 1.5rem; } .policy-content h2 { font-size: 1.125rem; } .policy-content p, .policy-content ul { font-size: 0.8125rem; } }
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #dc2626;
+          --border: #e2e8f0;
+          --font-body: 'Merriweather', Georgia, serif;
+          --font-head: 'Inter', system-ui, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+          }
+        }
+
+        .static-page {
+          background: var(--bg);
+          color: var(--text);
+          font-family: var(--font-body);
+          padding: 6rem 0;
+          line-height: 1.8;
+        }
+
+        .static-container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        .static-header { text-align: center; margin-bottom: 4rem; }
+        .pill-label { 
+          display: inline-block; background: var(--accent); color: white; 
+          font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; 
+          padding: 0.2rem 0.8rem; border-radius: 100px; margin-bottom: 1.5rem;
+          text-transform: uppercase; letter-spacing: 1px;
+        }
+        .page-title { 
+          font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 3.5rem); 
+          font-weight: 900; margin: 0 0 1rem; color: var(--text); letter-spacing: -0.04em;
+        }
+        .last-updated { font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+        .content-card {
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 3rem;
+          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .policy-section h2 { 
+          font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; 
+          margin: 2rem 0 1rem; color: var(--text); border-bottom: 2px solid var(--accent);
+          display: inline-block; padding-bottom: 4px;
+        }
+        .policy-section p { margin-bottom: 1.5rem; color: var(--text); opacity: 0.9; }
+        .policy-section a { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: 0.2s; }
+        .policy-section a:hover { border-bottom-color: var(--accent); }
+        
+        @media (max-width: 640px) {
+          .static-page { padding: 4rem 0; }
+          .content-card { padding: 2rem; }
+        }
       `}} />
     </>
   );

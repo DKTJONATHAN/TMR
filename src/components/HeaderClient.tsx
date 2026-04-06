@@ -70,15 +70,29 @@ export default function HeaderClient({ serializedPosts, top5 }: { serializedPost
     } else {
       document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen, isSearchOpen]);
 
-  // Filter hits based on search term
-  const term = searchTerm.toLowerCase().trim();
-  const searchHits = term.length < 2 ? [] : serializedPosts.filter(p => 
-    p.title.toLowerCase().includes(term) || 
-    p.author.toLowerCase().includes(term)
-  ).slice(0, 6);
+  const handleSearchSubmit = (e: React.FormEvent | React.KeyboardEvent) => {
+    if (e.type === 'keydown' && (e as React.KeyboardEvent).key !== 'Enter') return;
+    e.preventDefault();
+    if (searchTerm.length > 0) {
+      setIsSearchOpen(false);
+      window.location.href = `/search?query=${encodeURIComponent(searchTerm)}`;
+    }
+  };
+
+  const searchHits = searchTerm.length >= 2 
+    ? (serializedPosts || []).filter((p: any) => 
+        p.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        p.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.author.toLowerCase().includes(searchTerm.toLowerCase())
+      ).slice(0, 5) 
+    : [];
+
+  const [dateStr, setDateStr] = useState('');
+  useEffect(() => {
+    setDateStr(new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }));
+  }, []);
 
   return (
     <>
@@ -115,10 +129,10 @@ export default function HeaderClient({ serializedPosts, top5 }: { serializedPost
         {/* 2. UTILITY BAR */}
         <div className="utility-bar">
           <div className="utility-inner">
-            <div className="date-display">{today}</div>
+            <div className="date-display">{dateStr}</div>
             <div className="utility-links">
               <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact">Contact Desk</Link>
             </div>
           </div>
         </div>
@@ -170,7 +184,7 @@ export default function HeaderClient({ serializedPosts, top5 }: { serializedPost
           <div className="search-backdrop" onClick={() => setIsSearchOpen(false)}></div>
           
           <div className="search-box">
-            <div className="search-input-wrapper">
+            <form className="search-input-wrapper" onSubmit={handleSearchSubmit}>
               <svg className="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <input 
                 type="text" 
@@ -179,13 +193,14 @@ export default function HeaderClient({ serializedPosts, top5 }: { serializedPost
                 autoComplete="off"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleSearchSubmit}
               />
-              <button className="fs-esc-btn" onClick={() => setIsSearchOpen(false)}>ESC</button>
-            </div>
+              <button type="button" className="fs-esc-btn" onClick={() => setIsSearchOpen(false)}>ESC</button>
+            </form>
             
             <div className="fs-results-area">
               <div className="fs-results">
-                {term.length < 2 ? (
+                {searchTerm.length < 2 ? (
                   <div className="fs-empty">
                     <span className="fs-empty-label">Trending Topics</span>
                     <div className="fs-tags">
@@ -195,25 +210,34 @@ export default function HeaderClient({ serializedPosts, top5 }: { serializedPost
                        <Link href="/category/sports" className="fs-tag">Sports</Link>
                     </div>
                   </div>
-                ) : searchHits.length === 0 ? (
-                  <div style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>
-                    No stories or authors found for "{term}"
-                  </div>
                 ) : (
-                  searchHits.map((h, i) => (
-                    <Link href={`/posts/${h.slug}`} className="search-hit" key={i} onClick={() => setIsSearchOpen(false)}>
-                       <div className="hit-img-wrap"><img src={h.image} alt="" /></div>
-                       <div className="hit-content">
-                          <div className="hit-meta">
-                             <span className="hit-cat">{h.category}</span>
-                             <span className="hit-dot">•</span>
-                             <span className="hit-author">By {h.author}</span>
-                          </div>
-                          <h4 className="hit-title">{h.title}</h4>
-                       </div>
-                       <svg className="hit-arrow" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </Link>
-                  ))
+                  <>
+                    {searchHits.length === 0 ? (
+                      <div style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>
+                        No stories or authors found for "{searchTerm}"
+                      </div>
+                    ) : (
+                      <>
+                        {searchHits.map((h: any, i: number) => (
+                          <Link href={`/posts/${h.slug}`} className="search-hit" key={i} onClick={() => setIsSearchOpen(false)}>
+                             <div className="hit-img-wrap"><img src={h.image} alt="" /></div>
+                             <div className="hit-content">
+                                <div className="hit-meta">
+                                   <span className="hit-cat">{h.category}</span>
+                                   <span className="hit-dot">•</span>
+                                   <span className="hit-author">By {h.author}</span>
+                                </div>
+                                <h4 className="hit-title">{h.title}</h4>
+                             </div>
+                             <svg className="hit-arrow" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          </Link>
+                        ))}
+                        <Link href={`/search?query=${encodeURIComponent(searchTerm)}`} className="fs-all-btn" onClick={() => setIsSearchOpen(false)}>
+                           See all results for "{searchTerm}"
+                        </Link>
+                      </>
+                    )}
+                  </>
                 )}
               </div>
             </div>

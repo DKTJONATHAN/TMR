@@ -8,69 +8,101 @@ export default function Cookies() {
   const lastUpdated = "August 13, 2025";
   return (
     <>
-      <main className="policy-page" role="main">
-        <section className="policy-header">
-          <h1>Cookies Policy</h1>
-          <p>Last Updated: {lastUpdated}</p>
-        </section>
-        <section className="policy-content">
-          <h2>1. Introduction</h2>
-          <p>The Mwaniki Report uses cookies to enhance your experience on our website, <a href="/">jonathanmwaniki.co.ke</a>. This Cookies Policy explains what cookies are, how we use them, and your choices regarding their use, in compliance with the <strong>Kenya Data Protection Act, 2019</strong> and <strong>GDPR</strong>.</p>
+      <main className="static-page">
+        <div className="static-container">
+          <header className="static-header">
+            <span className="pill-label">Legal</span>
+            <h1 className="page-title">Cookies Policy</h1>
+            <p className="last-updated">Last Updated: {lastUpdated}</p>
+          </header>
 
-          <h2>2. What Are Cookies?</h2>
-          <p>Cookies are small text files stored on your device when you visit our website. They help us provide functionality, analyze performance, and personalize content.</p>
+          <div className="content-card">
+            <section className="policy-section">
+              <h2>1. Introduction</h2>
+              <p>The Mwaniki Report uses cookies to enhance your experience on our website, <a href="/">jonathanmwaniki.co.ke</a>. This Cookies Policy explains what cookies are, how we use them, and your choices regarding their use.</p>
 
-          <h2>3. Types of Cookies We Use</h2>
-          <ul>
-            <li><strong>Essential Cookies</strong>: Necessary for website functionality (e.g., navigation, access to secure areas). These cannot be disabled.</li>
-            <li><strong>Analytics Cookies</strong>: Collect anonymous data on how you use our site (e.g., Google Analytics) to improve performance.</li>
-            <li><strong>Functional Cookies</strong>: Enable enhanced features (e.g., remembering preferences).</li>
-            <li><strong>Advertising Cookies</strong>: Used by third parties to deliver relevant ads (if applicable).</li>
-          </ul>
+              <h2>2. What Are Cookies?</h2>
+              <p>Cookies are small text files stored on your device when you visit our website. They help us provide functionality, analyze performance, and personalize content to your interests.</p>
 
-          <h2>4. How We Use Cookies</h2>
-          <p>We use cookies to:</p>
-          <ul>
-            <li>Ensure the website functions properly.</li>
-            <li>Analyze site usage (e.g., pages visited, time spent).</li>
-            <li>Personalize content or ads (with your consent).</li>
-          </ul>
+              <h2>3. Types of Cookies We Use</h2>
+              <p>We use <strong>Essential Cookies</strong> for website functionality, <strong>Analytics Cookies</strong> to understand site usage, and <strong>Functional Cookies</strong> to remember your preferences.</p>
 
-          <h2>5. Your Choices</h2>
-          <p>On your first visit, we display a cookie consent popup. You can:</p>
-          <ul>
-            <li><strong>Accept</strong>: Allow all cookies.</li>
-            <li><strong>Decline</strong>: Allow only essential cookies.</li>
-            <li><strong>Manage Settings</strong>: Adjust preferences via your browser or by contacting us.</li>
-          </ul>
-          <p>You can manage cookies through your browser settings. Note that disabling cookies may affect site functionality.</p>
+              <h2>4. Your Choices</h2>
+              <p>You can manage cookies through your browser settings or via our consent popup. Note that disabling certain cookies may affect your experience on our site.</p>
 
-          <h2>6. Legal Compliance</h2>
-          <p>We comply with the Kenya Data Protection Act, 2019, by obtaining informed consent for non-essential cookies. Under GDPR, we ensure explicit consent and provide an opt-out option. You can withdraw consent by clearing cookies or contacting us.</p>
-
-          <h2>7. Third-Party Cookies</h2>
-          <p>We may use third-party services (e.g., Google Analytics) that set cookies. These are subject to their respective privacy policies.</p>
-
-          <h2>8. Contact Us</h2>
-          <p>For questions or to manage your cookie preferences, contact us at:</p>
-          <p>Email: <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a></p>
-          <p>Data Protection Officer: Jonathan Mwaniki, The Mwaniki Report, Nairobi, Kenya.</p>
-        </section>
+              <h2>5. Contact Us</h2>
+              <p>For questions about our cookie practices, contact us at <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a>.</p>
+            </section>
+          </div>
+        </div>
       </main>
+
       <style dangerouslySetInnerHTML={{ __html: `
-        .policy-page { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; font-family: 'ReithSans', 'Helvetica', 'Arial', sans-serif; color: #141414; }
-        .policy-header { text-align: center; margin-bottom: 2rem; }
-        .policy-header h1 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 2rem; color: #141414; margin: 0 0 0.5rem; }
-        .policy-header p { font-size: 0.875rem; color: #666; }
-        .policy-content { max-width: 800px; margin: 0 auto; line-height: 1.6; }
-        .policy-content h2 { font-family: 'ReithSerif', 'Georgia', 'Times', serif; font-size: 1.5rem; color: #141414; margin: 1.5rem 0 0.75rem; }
-        .policy-content p, .policy-content ul { font-size: 0.9375rem; color: #333; }
-        .policy-content ul { padding-left: 1.5rem; margin: 0.5rem 0; }
-        .policy-content a { color: #BB1919; text-decoration: none; }
-        .policy-content a:hover, .policy-content a:focus { text-decoration: underline; }
-        .policy-content a:focus { outline: 2px solid #BB1919; outline-offset: 2px; }
-        @media (max-width: 768px) { .policy-page { padding: 1.5rem 0.75rem; } .policy-header h1 { font-size: 1.75rem; } .policy-content h2 { font-size: 1.25rem; } .policy-content p, .policy-content ul { font-size: 0.875rem; } }
-        @media (max-width: 480px) { .policy-header h1 { font-size: 1.5rem; } .policy-content h2 { font-size: 1.125rem; } .policy-content p, .policy-content ul { font-size: 0.8125rem; } }
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #dc2626;
+          --border: #e2e8f0;
+          --font-body: 'Merriweather', Georgia, serif;
+          --font-head: 'Inter', system-ui, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+          }
+        }
+
+        .static-page {
+          background: var(--bg);
+          color: var(--text);
+          font-family: var(--font-body);
+          padding: 6rem 0;
+          line-height: 1.8;
+        }
+
+        .static-container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        .static-header { text-align: center; margin-bottom: 4rem; }
+        .pill-label { 
+          display: inline-block; background: var(--accent); color: white; 
+          font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; 
+          padding: 0.2rem 0.8rem; border-radius: 100px; margin-bottom: 1.5rem;
+          text-transform: uppercase; letter-spacing: 1px;
+        }
+        .page-title { 
+          font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 3.5rem); 
+          font-weight: 900; margin: 0 0 1rem; color: var(--text); letter-spacing: -0.04em;
+        }
+        .last-updated { font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+        .content-card {
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 3rem;
+          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .policy-section h2 { 
+          font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; 
+          margin: 2rem 0 1rem; color: var(--text); border-bottom: 2px solid var(--accent);
+          display: inline-block; padding-bottom: 4px;
+        }
+        .policy-section p { margin-bottom: 1.5rem; color: var(--text); opacity: 0.9; }
+        .policy-section a { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: 0.2s; }
+        .policy-section a:hover { border-bottom-color: var(--accent); }
+        
+        @media (max-width: 640px) {
+          .static-page { padding: 4rem 0; }
+          .content-card { padding: 2rem; }
+        }
       `}} />
     </>
   );

@@ -9,24 +9,6 @@ export default function Contact() {
   return (
     <>
       <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1.5rem', fontFamily: "'Inter', sans-serif" }}>
-        
-        {/* Header */}
-        <div className="page-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 className="page-title" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '800', marginBottom: '1rem', color: '#111827' }}>Contact Us</h1>
-          <div className="title-underline" style={{ width: '60px', height: '4px', background: '#dc2626', margin: '0 auto 1.5rem', borderRadius: '2px' }}></div>
-          <p className="page-description" style={{ fontSize: '1.125rem', color: '#4b5563', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
-            We value your feedback, story tips, and engagement. Reach out to us through any of the channels below.
-          </p>
-        </div>
-
-        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
-          
-          {/* Contact Form */}
-          <div className="contact-form" style={{ background: 'white', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
-            <h2 className="form-title" style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#111827' }}>Send us a Message</h2>
-            <form action="#" method="POST">
-              <div className="form-group" style={{ marginBottom: '1.5rem' }}>
-                <label htmlFor="name" className="form-label" style={{ display: 'block', fontWeight: '500', color: '#374151', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
