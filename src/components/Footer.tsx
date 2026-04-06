@@ -1,0 +1,254 @@
+'use client';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+
+const currentYear = new Date().getFullYear();
+const rssFeedUrl = 'https://rss.app/feeds/QcLNMreXGcRH8ykn.xml';
+
+const socialLinks = [
+  { 
+    name: 'X (Twitter)', 
+    url: 'https://x.com/maestropuns', 
+    icon: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z',
+    bg: '#000000'
+  },
+  { 
+    name: 'Facebook', 
+    url: 'https://facebook.com/jonathanmwaniki', 
+    icon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z',
+    bg: '#1877f2'
+  },
+  { 
+    name: 'Instagram', 
+    url: 'https://instagram.com/jonathanmwaniki', 
+    icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z',
+    bg: '#e1306c'
+  },
+  { 
+    name: 'LinkedIn', 
+    url: 'https://linkedin.com/in/jonathanmwaniki', 
+    icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 11-2 2 2 2 0 012-2z',
+    bg: '#0077b5'
+  },
+  { 
+    name: 'RSS Feed', 
+    url: rssFeedUrl, 
+    icon: 'M2 15a10 10 0 0 0 10 10c2.7 0 5.1-.9 7.2-2.6a1 1 0 0 0-1.4-1.4C17.3 21 15 22 12 22a8 8 0 0 1-8-8 1 1 0 0 1 2 0zM2 12a6 6 0 0 1 6 6 1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1zM6 10a4 4 0 0 0-4 4 1 1 0 0 0 2 0 2 2 0 0 1 2-2 1 1 0 0 1 0 2 1 1 0 0 0 1 1V10a1 1 0 0 0-1-1z',
+    bg: '#f26522' 
+  }
+];
+
+const footerLinks = [
+  {
+    title: 'Sections',
+    links: [
+      { name: 'Politics', url: '/category/politics' },
+      { name: 'Business', url: '/category/business' },
+      { name: 'Sports', url: '/category/sports' },
+      { name: 'Opinion', url: '/category/opinion' },
+      { name: 'Lifestyle', url: '/category/lifestyle' }
+    ]
+  },
+  {
+    title: 'Company',
+    links: [
+      { name: 'About Us', url: '/about' },
+      { name: 'Contact', url: '/contact' },
+      { name: 'Privacy Policy', url: '/privacy' },
+      { name: 'Terms of Service', url: '/terms' }
+    ]
+  }
+];
+
+export default function Footer() {
+  const [showToTop, setShowToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowToTop(true);
+      } else {
+        setShowToTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNewsletter = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Thank you for subscribing! (This is a demo)');
+    (e.target as HTMLFormElement).reset();
+  };
+
+  return (
+    <>
+      <footer className="site-footer">
+        <div className="footer-accent"></div>
+
+        <div className="footer-container">
+          <div className="footer-grid">
+            
+            <div className="footer-col brand-col">
+              <Link href="/" className="footer-logo" aria-label="Jonathan Mwaniki Home">
+                <img src="/Jonathan-Mwaniki-logo.png" alt="JM Logo" className="footer-logo-img" width="50" height="50" loading="lazy" />
+                <div className="logo-text">
+                  <span>The</span>
+                  <span className="highlight">Mwaniki</span>
+                  <span>Report</span>
+                </div>
+              </Link>
+              <p className="brand-desc">
+                Professional journalism and insightful commentary from Kenya. Delivering truth through compelling storytelling.
+              </p>
+
+              <div className="social-row">
+                {socialLinks.map((s, i) => (
+                  <a 
+                    key={i}
+                    href={s.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-btn" 
+                    aria-label={`Follow on ${s.name}`}
+                    style={{ "--hover-bg": s.bg } as React.CSSProperties}
+                    title={s.name}
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                      <path d={s.icon}/>
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {footerLinks.map((section, i) => (
+              <div className="footer-col links-col" key={i}>
+                <h3 className="col-title">{section.title}</h3>
+                <ul className="footer-nav">
+                  {section.links.map((link, j) => (
+                    <li key={j}><Link href={link.url}>{link.name}</Link></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            <div className="footer-col newsletter-col">
+              <h3 className="col-title">Stay Informed</h3>
+              <p className="newsletter-text">Get the latest breaking news delivered to your inbox.</p>
+              <form className="newsletter-form" onSubmit={handleNewsletter}>
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit" aria-label="Subscribe">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <div className="copyright">
+              &copy; {currentYear} Jonathan Mwaniki. All rights reserved.
+            </div>
+
+            <button className={`back-to-top ${showToTop ? 'visible' : ''}`} aria-label="Back to top" onClick={scrollToTop}>
+              <span>Back to Top</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        :root {
+          --f-bg: #111827;
+          --f-text: #9ca3af;
+          --f-white: #ffffff;
+          --f-accent: #dc2626;
+          --f-border: #1f2937;
+          --font-serif: 'Georgia', serif;
+          --font-sans: system-ui, -apple-system, sans-serif;
+        }
+
+        .site-footer { 
+          background-color: var(--f-bg); 
+          color: var(--f-text); 
+          font-family: var(--font-sans); 
+          position: relative; 
+          margin-top: auto; 
+        }
+
+        .footer-accent { height: 4px; background: linear-gradient(90deg, var(--f-accent) 0%, #b91c1c 100%); width: 100%; }
+        
+        .footer-container { max-width: 1280px; margin: 0 auto; padding: 4rem 1.5rem 2rem; }
+        
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem; }
+        
+        /* BRAND COL */
+        .footer-logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-logo-img { height: 50px; width: auto; display: block; }
+        .logo-text { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--f-white); line-height: 1.1; display: flex; flex-direction: column; }
+        .logo-text .highlight { color: var(--f-accent); }
+        .brand-desc { font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; max-width: 320px; }
+
+        /* SOCIAL ICONS */
+        .social-row { display: flex; gap: 0.8rem; }
+        .social-btn { 
+          width: 40px; height: 40px; 
+          background: rgba(255,255,255,0.05); 
+          color: var(--f-white); 
+          display: flex; align-items: center; justify-content: center; 
+          border-radius: 8px; 
+          transition: all 0.2s ease; 
+          border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-btn:hover { 
+          background: var(--hover-bg) !important; 
+          transform: translateY(-3px); 
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          border-color: transparent;
+        }
+
+        /* LINKS COL */
+        .col-title { color: var(--f-white); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+        .footer-nav { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-nav a { color: var(--f-text); text-decoration: none; font-size: 0.95rem; transition: color 0.2s, padding-left 0.2s; display: inline-block; }
+        .footer-nav a:hover { color: var(--f-accent); padding-left: 5px; }
+
+        /* NEWSLETTER */
+        .newsletter-text { font-size: 0.9rem; margin-bottom: 1rem; }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-form input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--f-border); padding: 0.7rem 1rem; border-radius: 6px; color: var(--f-white); font-size: 0.9rem; }
+        .newsletter-form input:focus { outline: none; border-color: var(--f-accent); }
+        .newsletter-form button { background: var(--f-accent); border: none; color: var(--f-white); padding: 0 1rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+        .newsletter-form button:hover { background: #b91c1c; }
+
+        /* BOTTOM BAR */
+        .footer-bottom { border-top: 1px solid var(--f-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .back-to-top { background: transparent; border: 1px solid var(--f-border); color: var(--f-text); padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; font-family: var(--font-sans); }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { border-color: var(--f-accent); color: var(--f-accent); background: rgba(220, 38, 38, 0.1); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) { 
+          .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } 
+          .brand-col { grid-column: span 2; } 
+        }
+        @media (max-width: 640px) { 
+          .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } 
+          .brand-col { grid-column: span 1; } 
+          .footer-bottom { flex-direction: column-reverse; gap: 1rem; align-items: center; }
+          .social-row { justify-content: center; }
+        }
+      `}} />
+    </>
+  );
+}

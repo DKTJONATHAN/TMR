@@ -1,0 +1,42 @@
+/* Article Content Styling */
+.article-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.article-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.article-content figure {
+  margin: 2rem 0;
+}
+
+.article-content figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.article-content h2 {
+  margin-top: 3rem;
+  color: #1a365d;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.article-content th, 
+.article-content td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
