@@ -1,0 +1,27 @@
+name: Daily llms.txt (Root + Public)
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Generate & Copy
+      run: |
+        npx llmstxt@latest gen https://www.jonathanmwaniki.co.ke/sitemap-0.xml --exclude-path "**/privacy**" > llms.txt
+        mkdir -p public
+        cp llms.txt public/llms.txt
+        ls -la public/llms.txt
+    - name: Commit Both
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add llms.txt public/llms.txt
+        git commit -m "Daily llms.txt root + public" || exit 0
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
