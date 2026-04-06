@@ -1,169 +1,143 @@
 import React from 'react';
 
 export const metadata = {
-  title: "Contact - The Mwaniki's Report",
-  description: "Get in touch with The Mwaniki's Report. Share story tips, feedback, or connect with our editorial team."
+  title: "Contact - The Mwaniki Report",
+  description: "Get in touch with The Mwaniki Report. Share story tips, feedback, or connect with our editorial team."
 };
 
 export default function Contact() {
   return (
     <>
-      <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1.5rem', fontFamily: "'Inter', sans-serif" }}>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  required
-                  className="form-input"
-                  placeholder="Your full name"
-                  style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '1rem', fontFamily: 'inherit' }}
-                />
-              </div>
-              
-              <div className="form-group" style={{ marginBottom: '1.5rem' }}>
-                <label htmlFor="email" className="form-label" style={{ display: 'block', fontWeight: '500', color: '#374151', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  required
-                  className="form-input"
-                  placeholder="your.email@example.com"
-                  style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '1rem', fontFamily: 'inherit' }}
-                />
-              </div>
-              
-              <div className="form-group" style={{ marginBottom: '1.5rem' }}>
-                <label htmlFor="subject" className="form-label" style={{ display: 'block', fontWeight: '500', color: '#374151', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Subject</label>
-                <select 
-                  id="subject" 
-                  name="subject" 
-                  required
-                  className="form-select"
-                  style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '1rem', fontFamily: 'inherit', backgroundColor: 'white' }}
-                >
-                  <option value="">Select a subject</option>
-                  <option value="story-tip">Story Tip</option>
-                  <option value="feedback">General Feedback</option>
-                  <option value="correction">Correction Request</option>
-                  <option value="partnership">Partnership Inquiry</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <div className="form-group" style={{ marginBottom: '1.5rem' }}>
-                <label htmlFor="message" className="form-label" style={{ display: 'block', fontWeight: '500', color: '#374151', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  required
-                  className="form-textarea"
-                  placeholder="Tell us more about your inquiry..."
-                  style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '1rem', fontFamily: 'inherit', resize: 'vertical', minHeight: '120px' }}
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit"
-                className="btn btn-primary btn-full"
-                style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.75rem 1.5rem', border: 'none', borderRadius: '6px', fontWeight: '500', cursor: 'pointer', background: '#dc2626', color: 'white', fontSize: '1rem' }}
-              >
-                Send Message
-                <svg style={{ width: '16px', height: '16px', marginLeft: '0.5rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                </svg>
-              </button>
-            </form>
-          </div>
+      <main className="static-page">
+        <div className="static-container">
+          <header className="static-header">
+            <span className="pill-label">Contact</span>
+            <h1 className="page-title">Get in Touch</h1>
+            <p className="last-updated">We'd love to hear from you. Whether you have a story tip, feedback, or a query, our team is here to help.</p>
+          </header>
 
-          {/* Contact Information */}
-          <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            
-            {/* Social Media */}
-            <div className="contact-card" style={{ background: '#f9fafb', padding: '1.5rem', borderRadius: '8px' }}>
-              <div className="contact-card-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                <div className="contact-icon" style={{ background: '#fee2e2', padding: '0.75rem', borderRadius: '8px', color: '#dc2626', flexShrink: 0 }}>
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
-                  </svg>
+          <div className="content-card">
+            <section className="policy-section">
+              <div className="contact-grid">
+                <div className="contact-item">
+                  <h3>General Inquiries</h3>
+                  <p>For general questions or feedback about our reporting:</p>
+                  <a href="mailto:info@jonathanmwaniki.co.ke">info@jonathanmwaniki.co.ke</a>
                 </div>
-                <div>
-                  <h3 className="contact-card-title" style={{ fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>Follow us on Twitter</h3>
-                  <p className="contact-card-text" style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Stay updated with our latest news and insights</p>
-                  <a href="https://twitter.com/maestropuns" target="_blank" rel="noopener noreferrer" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '500', fontSize: '0.875rem' }}>@maestropuns</a>
+                
+                <div className="contact-item">
+                  <h3>Story Tips & Press</h3>
+                  <p>Have a story we should cover? Securely reach our editorial team:</p>
+                  <a href="mailto:tips@jonathanmwaniki.co.ke">tips@jonathanmwaniki.co.ke</a>
+                </div>
+
+                <div className="contact-item">
+                  <h3>Partnerships</h3>
+                  <p>For advertising, content syndication, or partnership queries:</p>
+                  <a href="mailto:partners@jonathanmwaniki.co.ke">partners@jonathanmwaniki.co.ke</a>
                 </div>
               </div>
-            </div>
 
-            {/* Website */}
-            <div className="contact-card" style={{ background: '#f9fafb', padding: '1.5rem', borderRadius: '8px' }}>
-              <div className="contact-card-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                <div className="contact-icon" style={{ background: '#fee2e2', padding: '0.75rem', borderRadius: '8px', color: '#dc2626', flexShrink: 0 }}>
-                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="contact-card-title" style={{ fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>Website</h3>
-                  <p className="contact-card-text" style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Visit our main website</p>
-                  <a href="https://jonathanmwaniki.co.ke" className="contact-link" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '500', fontSize: '0.875rem' }}>jonathanmwaniki.co.ke</a>
-                </div>
+              <div className="location-box">
+                <h3>Social Media</h3>
+                <p>Follow us on Twitter for real-time updates:</p>
+                <a href="https://twitter.com/maestropuns" target="_blank" rel="noopener noreferrer" className="social-link">@maestropuns</a>
               </div>
-            </div>
-
-            {/* Response Time */}
-            <div className="contact-card" style={{ background: '#fef2f2', padding: '1.5rem', borderRadius: '8px' }}>
-              <div className="contact-card-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                <div className="contact-icon" style={{ background: '#fee2e2', padding: '0.75rem', borderRadius: '8px', color: '#dc2626', flexShrink: 0 }}>
-                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="contact-card-title" style={{ fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>Response Time</h3>
-                  <p className="contact-card-text" style={{ color: '#6b7280', fontSize: '0.875rem' }}>We typically respond to inquiries within 24-48 hours during business days.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="newsletter-signup" style={{ background: '#111827', color: 'white', padding: '1.5rem', borderRadius: '8px', marginTop: '1rem' }}>
-              <h3 className="newsletter-title" style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Stay Updated</h3>
-              <p className="newsletter-text" style={{ color: '#d1d5db', fontSize: '0.875rem', marginBottom: '1rem' }}>
-                Subscribe to our newsletter for the latest news and insights delivered to your inbox.
-              </p>
-              <form className="newsletter-form" style={{ display: 'flex', gap: '0.75rem' }}>
-                <input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  required
-                  style={{ flex: 1, padding: '0.5rem 0.75rem', background: 'white', color: '#111827', border: 'none', borderRadius: '6px', fontSize: '0.875rem' }}
-                />
-                <button 
-                  type="submit"
-                  style={{ padding: '0.5rem 1rem', background: '#dc2626', color: 'white', border: 'none', borderRadius: '6px', fontWeight: '500', cursor: 'pointer', fontSize: '0.875rem' }}
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+            </section>
           </div>
         </div>
+      </main>
 
-        {/* Additional Information */}
-        <div className="additional-info" style={{ marginTop: '4rem', textAlign: 'center' }}>
-          <div className="info-card" style={{ background: '#f9fafb', padding: '2rem', borderRadius: '8px' }}>
-            <h3 className="info-title" style={{ fontSize: '1.25rem', fontWeight: '700', color: '#111827', marginBottom: '1rem' }}>For Media and Press Inquiries</h3>
-            <p className="info-text" style={{ color: '#4b5563', marginBottom: '1rem', lineHeight: '1.6', maxWidth: '800px', margin: '0 auto' }}>
-              If you're a member of the media looking for comments, interviews, or press materials, 
-              please use the contact form above and select "Partnership Inquiry" as your subject.
-            </p>
-            <p className="info-note" style={{ fontSize: '0.875rem', color: '#9ca3af', marginTop: '1rem' }}>
-              We aim to respond to all media inquiries within 24 hours.
-            </p>
-          </div>
-        </div>
-      </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #dc2626;
+          --border: #e2e8f0;
+          --font-body: 'Merriweather', Georgia, serif;
+          --font-head: 'Inter', system-ui, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+          }
+        }
+
+        .static-page {
+          background: var(--bg);
+          color: var(--text);
+          font-family: var(--font-body);
+          padding: 6rem 0;
+          line-height: 1.8;
+        }
+
+        .static-container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        .static-header { text-align: center; margin-bottom: 4rem; }
+        .pill-label { 
+          display: inline-block; background: var(--accent); color: white; 
+          font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; 
+          padding: 0.2rem 0.8rem; border-radius: 100px; margin-bottom: 1.5rem;
+          text-transform: uppercase; letter-spacing: 1px;
+        }
+        .page-title { 
+          font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 3.5rem); 
+          font-weight: 900; margin: 0 0 1rem; color: var(--text); letter-spacing: -0.04em;
+        }
+        .last-updated { font-family: var(--font-head); font-size: 1.1rem; color: var(--muted); font-weight: 500; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+
+        .content-card {
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 4rem;
+          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .contact-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 3rem;
+          margin-bottom: 4rem;
+        }
+
+        .contact-item h3 {
+          font-family: var(--font-head); font-size: 1.1rem; font-weight: 800;
+          margin-bottom: 1rem; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .contact-item p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
+        .contact-item a { 
+          color: var(--accent); text-decoration: none; font-weight: 700; 
+          font-family: var(--font-head); font-size: 1rem;
+          border-bottom: 2px solid transparent; transition: 0.2s;
+        }
+        .contact-item a:hover { border-bottom-color: var(--accent); }
+
+        .location-box {
+          border-top: 1px solid var(--border);
+          padding-top: 3rem;
+          text-align: center;
+        }
+        .location-box h3 {
+          font-family: var(--font-head); font-size: 1.1rem; font-weight: 800;
+          margin-bottom: 1rem; color: var(--text); text-transform: uppercase;
+        }
+        .location-box p { font-size: 1rem; color: var(--muted); margin-bottom: 1rem; }
+        .social-link { color: var(--accent); text-decoration: none; font-weight: 700; font-family: var(--font-head); }
+        
+        @media (max-width: 640px) {
+          .static-page { padding: 4rem 0; }
+          .content-card { padding: 2rem; }
+          .contact-grid { gap: 2rem; }
+        }
+      `}} />
     </>
   );
 }
