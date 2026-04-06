@@ -1,0 +1,40 @@
+{
+  "name": "the-mwanikis-report",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": "20.x",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "index-posts": "node scripts/index-posts.js"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "^18",
+    "react-dom": "^18",
+    "next-mdx-remote": "^5.0.0",
+    "gray-matter": "^4.0.3",
+    "glob": "^11.0.0",
+    "googleapis": "^152.0.0",
+    "google-auth-library": "^9.10.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.0",
+    "xml2js": "^0.6.2",
+    "pino": "^8.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  },
+  "overrides": {
+    "sharp": "0.33.5"
+  }
+}

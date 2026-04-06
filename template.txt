@@ -1,0 +1,70 @@
+---
+title: "Your Article Title Here"
+description: "Brief description of your article content"
+date: YYYY,MM,DD
+author: "Author Name"
+image: "https://example.com/featured-image.jpg"
+imageCaption: "Featured image caption text"
+imageAlt: "Featured image alt text"
+category: "Category"
+tags: ["Tag1", "Tag2", "Tag3"]
+featured: true
+draft: false
+---
+
+<div class="article-content">
+
+Your introductory paragraph here. This should introduce the main topic and thesis of your article.
+
+<figure class="content-image">
+  <img 
+    src="https://example.com/image1.jpg" 
+    alt="Alt text for first image"
+    loading="lazy"
+    width="800"
+    height="450"
+  />
+  <figcaption>Caption for first image</figcaption>
+</figure>
+
+### First Section Header
+Your first section content here. This should develop one key aspect of your argument or story.
+
+<figure class="content-image">
+  <img 
+    src="https://example.com/image2.jpg" 
+    alt="Alt text for second image"
+    loading="lazy"
+    width="800"
+    height="450"
+  />
+  <figcaption>Caption for second image</figcaption>
+</figure>
+
+### Second Section Header
+Your second section content here. Continue developing your analysis or narrative.
+
+<figure class="content-image">
+  <img 
+    src="https://example.com/image3.jpg" 
+    alt="Alt text for third image"
+    loading="lazy"
+    width="800"
+    height="450"
+  />
+  <figcaption>Caption for third image</figcaption>
+</figure>
+
+### Third Section Header
+Your final major section content here. Build toward your conclusion.
+
+### Conclusion
+Wrap up your article with a strong conclusion that reinforces your main points.
+
+<div class="article-meta">
+  <p><strong>Published:</strong> Month DD, YYYY</p>
+  <p><strong>Updated:</strong> Month DD, YYYY</p>
+  <p><strong>Tags:</strong> Tag1, Tag2, Tag3</p>
+</div>
+
+</div>
